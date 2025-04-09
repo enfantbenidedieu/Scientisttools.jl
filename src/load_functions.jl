@@ -18,3 +18,23 @@ include("sum_table.jl")
 include("get_dummies.jl")
 include("intersect.jl")
 include("recodevarfamd.jl")
+include("dimdesc.jl")
+#include("datasets.jl")
+
+# Load model functions
+include("PCA.jl")
+include("CA.jl")
+include("MCA.jl")
+include("FAMD.jl")
+
+# Load
+include("eigenvalue.jl")
+include("get_pca.jl")
+include("get_ca.jl")
+include("get_mca.jl")
+include("get_famd.jl")
+
+#include("fviz_pca.jl")
+#include("fviz_ca.jl")
+#include("fviz_mca.jl")
+#include("fviz_famd.jl")

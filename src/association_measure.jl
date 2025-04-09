@@ -50,9 +50,11 @@ function g_test(X)
     return  (; :statistic => statistic, :pvalue => p_value, :dof => dof)
 end;
 
+#=
 using XLSX,DataFrames
 data,columns = XLSX.readtable("./data/children.xlsx","Feuil1");
 donnee = DataFrame(data,columns);
 association = association_measure(donnee[!,2:end]);
 chi2_test = chi2_contingency(donnee[!,2:end]);
 gtest = g_test(donnee[!,2:end]);
+=#

@@ -1,8 +1,3 @@
-# Load packages
-using DataFrames
-using Statistics
-using StatsBase
-
 function missing_imputation(X;method::Symbol=:mean)
     # Make a copy and convert to matrice
     Y = copy(Matrix(X))
@@ -26,8 +21,3 @@ function missing_imputation(X;method::Symbol=:mean)
         return Y
     end;
 end;
-
-#using RData
-#orange = load("./data/orange.rda")["orange"];
-#orange2 = missing_imputation(orange);
-#orange3 = missing_imputation(orange,method=:median);

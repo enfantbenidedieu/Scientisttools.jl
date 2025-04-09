@@ -1,6 +1,9 @@
 using Scientisttools
 using Test
+using DataFrames
 
-@testset "Scientisttools.jl" begin
-    # Write your tests here.
+tests = ["PCA","CA"]
+
+for test in tests
+    include(test*".jl")
 end

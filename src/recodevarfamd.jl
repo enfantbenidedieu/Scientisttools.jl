@@ -37,11 +37,10 @@ function recodevarfamd(X::AbstractDataFrame)
     if X_quanti === nothing && X_quali !== nothing X, n, k, k1 = X_quali, n2, k2, 0 end;
 
     # Store all informations
-    res = (; :X => X, :n => n, :k => k, :k1 => k1, :k2 => k2, :nb_moda => nb_moda, 
-             :quanti => X_quanti, :quali => X_quali, :dummies => dummies);
-    return res
+    return (; :X => X, :n => n, :k => k, :k1 => k1, :k2 => k2, :nb_moda => nb_moda, :quanti => X_quanti, :quali => X_quali, :dummies => dummies);
 end;
 
+#=
 using XLSX
 data,columns = XLSX.readtable("./data/decathlon.xlsx","Feuil1");
 data2,columns2 = XLSX.readtable("./data/races_canines.xlsx","Feuil1");
@@ -49,4 +48,5 @@ donnee = DataFrame(data,columns);
 donnee2 = DataFrame(data2,columns2);
 rec1 = recodevarfamd(donnee[!,2:end]);
 rec2 = recodevarfamd(donnee2[!,2:end]);
+=#
 

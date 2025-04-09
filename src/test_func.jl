@@ -1,6 +1,6 @@
 include("load_packages.jl")
 include("load_functions.jl")
-include("PCA.jl")
+#include("PCA.jl")
 #include("CA.jl")
 #include("MCA.jl")
 include("FAMD.jl")
@@ -20,7 +20,13 @@ include("fviz_famd.jl")
 
 # Principal Components Analysis (PCA)
 decathlon = get_dataset("decathlon");
-res_pca = PCA(decathlon,ind_sup=42:46,quanti_sup=12:13,quali_sup=14);
+X = DataFrame((; :Maths => [6.00, 8.00, 6.00, 14.50, 14.00, 11.00, 5.50, 13.00, 9.00],
+                 :Physique => [6.00, 8.00, 7.00, 14.50, 14.00, 10.00, 7.00, 12.50, 9.50],
+                 Symbol("Français") => [5.00, 8.00, 11.00, 15.50, 12.00, 5.50, 14.00, 8.50, 12.50],
+                 :Anglais => [5.50, 8.00, 9.50, 15.00, 12.50, 7.00, 11.50, 9.50, 12.00]))
+    
+#res = PCA(X,first_col_as_index=false);
+#res_pca = PCA(decathlon,ind_sup=42:46,quanti_sup=12:13,quali_sup=14);
 #dim_desc_pca = dimdesc(res_pca);
 #eig = fviz_screeplot(res_pca,add_labels=true);
 #fig = fviz_pca_ind(res_pca);
@@ -30,6 +36,13 @@ res_pca = PCA(decathlon,ind_sup=42:46,quanti_sup=12:13,quali_sup=14);
 
 # Correspondence Analysis (CA)
 #children = get_dataset("children");
+X = DataFrame((; :Names => ["Exp.agri", "Patron", "Cadre.sup", "Employé","Ouvrier"],
+                     :Droit => [80, 168, 470, 145, 166],
+                     :Sciences => [99, 137, 400, 133, 193],
+                     :Médecine => [65, 208, 876, 135, 127],
+                     :IUT => [58, 62, 79, 54, 129]))
+
+res = CA(X);
 #res_ca = CA(children,row_sup=15:18,col_sup=7:9,quali_sup=10);
 #fig = fviz_ca_row(res_ca);
 #fig2 = fviz_ca_col(res_ca);

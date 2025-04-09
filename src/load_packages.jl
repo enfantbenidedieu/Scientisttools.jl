@@ -11,8 +11,10 @@ using FreqTables
 using DataFramesMeta
 using CategoricalArrays
 using GLM
-using CairoMakie
+#using CairoMakie
 using Random
+#=
 import TidierPlots as gg
 # set plot_log to false
 gg.TidierPlots_set("plot_log",false)
+=#
